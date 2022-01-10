@@ -10,7 +10,7 @@ router.post('/', function (req, res, next) {
 			var lastname = req.body.lastname;
 			var mobileno = req.body.mobileno;
 			var query = 'INSERT INTO users (firstname, lastname, username, password, mobileno, email_id ) VALUES ("'+ firstname +'","'+ lastname +'","'+ username +'","'+ password +'","'+ mobileno +'","'+ email +'")';
-			console.log(query);
+			// console.log(query);
             connection.query(query, function (err, results) {
                 if (err)
                     res.json({success: 0, err: err});

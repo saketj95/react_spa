@@ -7,9 +7,9 @@ router.post('/', function (req, res, next) {
     var username = req.body.username;
     var exists = 0;
     var query = 'SELECT * FROM users';
-    connection
-        .query(query, function (err, row, field) {
+    connection.query(query, function (err, row, field) {
             if (err) {
+                console.log(err);
                 throw (err);
             }
             if (row.length > 0) {

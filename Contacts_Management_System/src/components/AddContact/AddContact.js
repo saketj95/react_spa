@@ -74,10 +74,15 @@ class MyContacts extends React.Component {
 				});
 					} else {
 						isinvalid2++;
-						(isinvalid2 > 0) ?
+						if (isinvalid2 > 0) {
 							this.setState({
 								invalidForm2: true
-							}) : null;
+							});
+						} else {
+							this.setState({
+								invalidForm2: null
+							});
+						}
 					}
 				})
 				.catch(function (error) {

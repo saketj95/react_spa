@@ -43,12 +43,11 @@ class LoginPage extends React.Component {
 		} else {
 			axios.post('http://localhost:7000/authenticateUserApi', {
 				username: username,
-				password: sha256(password)
+				password: password
 			})
 				.then(response => {
 					if (response.data.success === 1) {
-						var loggedin = response.data.loggedin;
-						console.log(response.data.loggedin);
+						// var loggedin = response.data.loggedin;
 						localStorage.setItem('username', response.data.username);
 						this.setState({
 							isLoggedin: true
@@ -136,10 +135,9 @@ class LoginPage extends React.Component {
 				this.setState({
 					invalidForm4: false,
 				});
-			(isinvalid3 === 0) ?
-				this.setState({
-					invalidForm3: false
-				}) : null;
+			if (isinvalid3 === 0) {
+				this.setState({ invalidForm3: false });
+			}
 		}
 		if (isinvalid === 0 && isinvalid1 === 0 && isinvalid2 === 0 && isinvalid3 === 0 && isinvalid4 === 0) {
 			axios.post('http://localhost:7000/checkDuplicateUser', {
@@ -153,7 +151,7 @@ class LoginPage extends React.Component {
 							lastname: lastname,
 							mobileno: mobileno,
 							email: email,
-							password: sha256(password)
+							password: password
 						})
 							.then(response => {
 								if (response.data.success) {
@@ -168,10 +166,11 @@ class LoginPage extends React.Component {
 							});
 					} else {
 						isinvalid3++;
-						(isinvalid3 > 0) ?
+						if (isinvalid3 > 0) {
 							this.setState({
 								invalidForm3: true
-							}) : null;
+							});
+						}
 					}
 				})
 				.catch(function (error) {

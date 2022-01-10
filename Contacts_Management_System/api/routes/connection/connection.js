@@ -5,8 +5,8 @@ module.exports = connection = mysql.createConnection(
     {
         host: 'localhost',
         user: 'root',
-        password: 'saket123',
-        database: 'custom_project'
+        // password: 'saket123',
+        database: 'custom_database'
     }
 );
 

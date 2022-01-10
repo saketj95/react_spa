@@ -26,7 +26,7 @@ class MyProfile extends React.Component {
 						profile_mobileno: response.data.profile_mobileno,
 					});
 				} else {
-					null;
+					// null;
 				}
 			})
 			.catch(function (error) {
