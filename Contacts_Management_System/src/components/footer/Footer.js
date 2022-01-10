@@ -15,7 +15,7 @@ class Footer extends React.Component {
 			// 		</h6>
 			// 	</div>
 			// </div>
-			<div />
+			<div  />
 		);
 	}
 }
